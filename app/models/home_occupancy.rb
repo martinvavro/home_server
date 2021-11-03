@@ -1,0 +1,2 @@
+class HomeOccupancy < ApplicationRecord
+end
