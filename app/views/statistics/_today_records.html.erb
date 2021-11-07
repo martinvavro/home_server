@@ -1,0 +1,19 @@
+<h3>Today records</h3>
+<div class="tbl-header">
+  <table ellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <th>Home status</th>
+      <th>Time</th>
+    </tr>
+  </table>
+</div>
+<div class="tbl-content">
+  <table ellpadding="0" cellspacing="0" border="0">
+    <% @occupancies.each do |occupancy| %>
+      <tr>
+        <td><%= occupancy.is_home ? 'home' : 'not home' %></td>
+        <td><%= occupancy.created_at.strftime('%H:%M:%S') %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -17,16 +17,31 @@ namespace :network do
     settings.save(validate: false)
   end
 
-  desc "Run once a day to delete old redundant records"
+  desc "Run once a day to delete old redundant records and save statistics"
   task delete_redundant_home_occupancy_records: :environment do
-    yesterday_records = HomeOccupancy.where(created_at: (Date.yesterday.beginning_of_day..Date.yesterday.end_of_day))
-    
-    yesterday_records.each do |record|
-      hour = record.created_at.hour
-      time = Date.yesterday + hour.hours
-      count = HomeOccupancy.where(created_at: time.beginning_of_hour..time.end_of_hour).count
+    yesterday_records = HomeOccupancy.yesterday_records
 
-      record.destroy! unless count == 1
+    statistic = Statistic.create!(
+      home: yesterday_records.where(is_home: true).count,
+      not_home: yesterday_records.where(is_home: false).count,
+      date: Date.yesterday
+    )
+    from = to = nil
+
+    yesterday_records.each do |record|
+      from = record.created_at if from.nil? && !record.is_home
+      to = record.created_at if from.present? && (record.is_home || record.equal?(yesterday_records.last))
+
+      if (from.present? && to.present?)
+        StatisticsNotHomeWindow.create!(
+          from: from,
+          to: to,
+          statistic_id: statistic.id
+        )
+        from = to = nil
+      end
+
+      record.destroy! 
     end
   end
 end

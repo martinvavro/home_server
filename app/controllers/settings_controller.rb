@@ -1,16 +1,5 @@
 class SettingsController < ApplicationController
-  def index
-    @settings = Setting.first
-    if @settings.nil?
-      redirect_to new_setting_path
-    else
-      redirect_to @settings
-    end
-  end
-
-  def show
-    @settings = Setting.first
-  end
+  before_action :find_settings, only: %i[edit update]
 
   def new
     @settings = Setting.new
@@ -20,27 +9,29 @@ class SettingsController < ApplicationController
     @settings = Setting.new(settings_params)
 
     if @settings.save
-      redirect_to @settings
+      redirect_to settings_path
     else
       render :new
     end
   end
 
   def edit
-    @settings = Setting.first
+    redirect_to new_setting_path if @settings.nil?
   end
 
   def update
-    @settings = Setting.first
-
     if @settings.update(settings_params)
-      redirect_to @settings
+      redirect_to settings_path
     else
       render :edit
     end
   end
 
   private
+
+  def find_settings
+    @settings = Setting.first
+  end
 
   def settings_params
     params.require(:setting).permit(:is_home_threshold, :alarm, :alarm_time, :sunset_offset)

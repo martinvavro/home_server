@@ -10,9 +10,12 @@
   </head>
 
   <body>
-    <h1> HomeServer </h1>
-    <%= render 'layouts/menu', partial: true %>
-
-    <%= yield %>
+    <header class="split-content">
+      <h1> HomeServer </h1>
+      <%= render 'layouts/menu', partial: true %>
+    </header>
+    <section>
+      <%= yield %>
+    </section>
   </body>
 </html>

@@ -1,0 +1,23 @@
+<h3>Historical records</h3>
+<div class="tbl-header">
+  <table ellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <th>Total</th>
+      <th>Home</th>
+      <th>Away</th>
+      <th>Date</th>
+    </tr>
+  </table>
+</div>
+<div class="tbl-content">
+  <table ellpadding="0" cellspacing="0" border="0">
+    <% @statistics.each do |statistic| %>
+      <tr>
+        <td><%= statistic.home + statistic.not_home %></td>
+        <td><%= statistic.home%></td>
+        <td><%= statistic.not_home %></td>
+        <td><%= statistic.date.strftime('%F') %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

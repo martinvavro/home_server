@@ -1,3 +1,6 @@
-<%= link_to "Network", controller: "network", action: "index" %>
-<%= link_to "Settings", controller: "settings", action: "index" %>
-<%= link_to "Statistics", controller: "statistics", action: "index" %>
+<nav>
+  <%= link_to "Network", { controller: "network", action: "index" }, class: is_active('network')  %>
+  <%= link_to "Statistics",{ controller: "statistics", action: "index" }, class: is_active('statistics') %>
+  <%= link_to "Settings", { controller: "settings", action: "edit" }, class: is_active('settings')  %>
+  <div class="animation start-home"></div>
+</nav>

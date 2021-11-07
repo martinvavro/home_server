@@ -1,4 +1,4 @@
-<%= form_with model: @settings do |form| %>
+<%= form_with model: @settings, url: url do |form| %>
   <div>
     <%= form.label :is_home_threshold %><br>
     <%= form.number_field :is_home_threshold, min: 0 %> devices
@@ -15,10 +15,9 @@
   </div>
 
   <div>
-    <%= form.label :sunset_offset %><br> 
+    <%= form.label I18n.t(:label_sunset_offset) %><br> 
     <%= form.number_field :sunset_offset, in: -120..120 %> minutes
   </div>
-
 
   <div>
     <br> 

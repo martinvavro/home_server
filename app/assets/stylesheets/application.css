@@ -13,3 +13,115 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+body {
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: 'Roboto', sans-serif;
+	margin: auto;
+	width: 100%;
+}
+
+header {
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 50px;
+	width: 100%;
+	background-color: rgba(165, 58, 58, 0.1);
+}
+
+header h1 {
+	line-height: 50px;
+	color: white;
+	margin-left: 10%;
+	margin-right: 50px;
+	font-weight: 200;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+section {
+	max-width: 80%;
+	margin: auto
+}
+
+nav {
+	position: relative;
+	width: 300px;
+	height: 50px;
+	font-size: 0;
+  border: 1px solid rgba(255,255,255,0.3);
+	margin-right: 10%;
+}
+
+nav a {
+	line-height: 50px;
+	width: 100px;
+	height: 100%;
+	font-size: 15px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+
+nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	display: none;
+}
+
+nav a.active {
+	background-color: rgba(255,255,255,0.3);
+}
+
+nav:hover a.active {
+	background-color: transparent;
+}
+
+nav:hover .start-home, a:hover~.animation  {
+	display: block;
+}
+
+nav .start-home, a:nth-child(1):hover~.animation {
+	width: 100px;
+	left: 0;
+  background-color: rgba(255,255,255,0.3);
+	/* background-color: #1abc9c; */
+}
+
+nav .start-about, a:nth-child(2):hover~.animation {
+	width: 100px;
+	left: 100px;
+	/* background-color: #e74c3c; */
+  background-color: rgba(255,255,255,0.3);
+}
+
+nav .start-blog, a:nth-child(3):hover~.animation {
+	width: 100px;
+	left: 200px;
+	/* background-color: #3498db; */
+  background-color: rgba(255,255,255,0.3);
+}
+
+nav .start-portefolio, a:nth-child(4):hover~.animation {
+	width: 100px;
+	left: 300px;
+	/* background-color: #9b59b6; */
+  background-color: rgba(255,255,255,0.3);
+}
+
+nav .start-contact, a:nth-child(5):hover~.animation {
+	width: 100px;
+	left: 400px;
+	/* background-color: #e67e22; */
+  background-color: rgba(255,255,255,0.3);
+}

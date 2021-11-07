@@ -1,4 +1,9 @@
-<% @occupancies.each do |occupancy| %>
-  <p><%= occupancy.is_home ? 'home' : 'not home' %></p>
-  <p><%= l occupancy.created_at %></p>
-<% end %>
+<div class='split-content'>
+  <div>
+    <%= render 'today_records' %>
+  </div>
+
+  <div>
+    <%= render 'historical_records' %>
+  </div>
+</div>
