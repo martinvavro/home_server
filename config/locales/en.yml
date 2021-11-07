@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  label_is_home_threshold: "Number of devices required to determine home occupancy"
+  label_alarm: "Alarm"
+  label_alarm_time: "Alarm time"
+  label_sunset_offset: "Number of minutes sunset offset"
+  label_on: "on"
+  label_on: "off"

@@ -1,0 +1,4 @@
+<% @occupancies.each do |occupancy| %>
+  <p><%= occupancy.is_home ? 'home' : 'not home' %></p>
+  <p><%= l occupancy.created_at %></p>
+<% end %>

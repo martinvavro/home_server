@@ -1,2 +1,0 @@
-class NetworkSetting < ApplicationRecord
-end

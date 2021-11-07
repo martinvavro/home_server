@@ -1,6 +1,6 @@
 require "test_helper"
 
-class NetworkSettingTest < ActiveSupport::TestCase
+class SettingsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

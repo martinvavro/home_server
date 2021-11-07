@@ -1,0 +1,23 @@
+<div>
+  <p><%= I18n.t(:label_is_home_threshold) %></p>
+  <b><%= @settings.is_home_threshold %> devices</b>
+</div>
+
+<div>
+  <p><%= I18n.t(:label_alarm) %></p>
+  <b><%= @settings.alarm ? I18n.t(:label_on) : I18n.t(:label_off) %></b>
+</div>
+
+<div>
+  <p><%= I18n.t(:label_alarm_time) %></p>
+  <b><%= @settings.alarm_time %></b>
+</div>
+
+<div>
+  <p><%= I18n.t(:label_sunset_offset) %></p>
+  <b><%= @settings.sunset_offset %> minutes</b>
+</div>
+
+<ul>
+  <li><%= link_to "Edit", edit_setting_path(@settings) %></li>
+</ul>

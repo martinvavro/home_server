@@ -1,0 +1,27 @@
+<%= form_with model: @settings do |form| %>
+  <div>
+    <%= form.label :is_home_threshold %><br>
+    <%= form.number_field :is_home_threshold, min: 0 %> devices
+  </div>
+
+  <div>
+    <%= form.label :alarm %><br>
+    <%= form.check_box :alarm %>
+  </div>
+
+  <div>
+    <%= form.label :alarm_time %><br>
+    <%= form.time_field :alarm_time %>
+  </div>
+
+  <div>
+    <%= form.label :sunset_offset %><br> 
+    <%= form.number_field :sunset_offset, in: -120..120 %> minutes
+  </div>
+
+
+  <div>
+    <br> 
+    <%= form.submit %>
+  </div>
+<% end %>
