@@ -1,5 +1,7 @@
-<p><b><%= @last_entry.devices_number -%></b> connected network devices</p>
-<p>Currently<%= ' not' unless @last_entry.is_home %> at home.</p>
-<p>Measured <b><%= Time.at(Time.now.utc - @last_entry.created_at).strftime("%M minutes %S seconds") %></b> ago</p>
-<p>Last console log:</p>
-<b><pre><%= @settings.last_nmap_info -%></pre></b>
+<div class="status">
+  <p><b><%= @last_entry.devices_number -%></b> connected network devices</p>
+  <p>Currently<%= ' not' unless @last_entry.is_home %> at home.</p>
+  <p>Measured <b><%= Time.at(Time.now.utc - @last_entry.created_at).strftime("%M minutes %S seconds") %></b> ago</p>
+  <p>Last console log:</p>
+  <b><pre><%= @settings.last_nmap_info -%></pre></b>
+</div>

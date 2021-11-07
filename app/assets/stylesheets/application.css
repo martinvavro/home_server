@@ -22,6 +22,7 @@ body {
   font-family: 'Roboto', sans-serif;
 	margin: auto;
 	width: 100%;
+	color: white;
 }
 
 header {
@@ -42,8 +43,17 @@ header h1 {
 }
 
 section {
-	max-width: 80%;
+	max-width: 1200px;
 	margin: auto
+}
+
+.split-content {
+  display: flex;
+  justify-items: center;
+}
+
+.split-content div {
+  margin: 0 2%;
 }
 
 nav {
@@ -77,6 +87,7 @@ nav .animation {
 	z-index: 0;
 	transition: all .5s ease 0s;
 	display: none;
+	margin: 0;
 }
 
 nav a.active {
@@ -124,4 +135,30 @@ nav .start-contact, a:nth-child(5):hover~.animation {
 	left: 400px;
 	/* background-color: #e67e22; */
   background-color: rgba(255,255,255,0.3);
+}
+
+@media (max-width: 700px) {
+  .split-content { 
+    flex-direction: column;
+  }
+
+  .split-content div {
+    flex-direction: row;
+  }
+
+	header {
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 25px;
+	}
+
+	header h1 {
+		margin: 0;
+		margin-bottom: 15px;
+	}
+
+	nav {
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
 }

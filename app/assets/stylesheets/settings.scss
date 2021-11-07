@@ -1,3 +1,238 @@
 // Place all the styles related to the Settings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+form div {
+  display: flex;
+  align-items: center;
+	justify-content: space-between;
+  margin: 0 25px;
+  height: 70px;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+form {
+  width: 70%;
+  padding: 25px;
+  margin: auto;
+  background-color: rgba(255,255,255,0.1);
+  border: solid 1px rgba(255,255,255,0.3);
+}
+
+input[type=number] {
+  color: white;
+  float: left;
+  width: 70px;
+  height: 40px;
+  padding: 0;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: none;
+  outline: none;
+  pointer-events: none;
+}
+
+span.spinner {
+  height: 45px;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+span.spinner > .sub,
+span.spinner > .add {
+  float: left;
+  display: block;
+  width: 35px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 37px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-right: 0;
+  cursor: pointer;
+  transition: 0.1s linear;
+  -o-transition: 0.1s linear;
+  -ms-transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
+}
+
+span.spinner > .add {
+  top: 0;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-left: 0;
+}
+
+span.spinner > .sub:hover,
+span.spinner > .add:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+}
+
+.input_wrapper{
+  width: 142px;
+  height: 43px;
+  margin: 0;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.input_wrapper input[type="checkbox"]{
+  width: 71px;
+  height: 43px;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: none;
+  position: relative;
+  outline: 0;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  margin: 0;
+}
+
+.input_wrapper input[type="checkbox"]:after{
+  position: absolute;
+  content: "";
+  width: 71px;
+  height: 43px;
+  background: rgba(255,255,255,0.1);
+  z-index: 2;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+}
+
+.input_wrapper svg{
+  position: absolute;
+  top: 50%;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  fill: #fff;
+  -webkit-transition: all .35s;
+  transition: all .35s;
+  z-index: 1;
+}
+
+.input_wrapper .is_checked{
+  width: 18px;
+  left: 18%;
+  -webkit-transform: translateX(190%) translateY(-45%) scale(0);
+          transform: translateX(190%) translateY(-45%) scale(0);
+}
+
+.input_wrapper .is_unchecked{
+  width: 15px;
+  right: 20%;
+  -webkit-transform: translateX(0) translateY(-45%) scale(1);
+          transform: translateX(0) translateY(-45%) scale(1);
+}
+
+/* Checked State */
+.input_wrapper input[type="checkbox"]:checked {
+  background: rgba(255,255,255,0.3);
+}
+
+.input_wrapper input[type="checkbox"]:checked:after {
+  left: calc(100%);
+}
+
+.input_wrapper input[type="checkbox"]:checked + .is_checked {
+  -webkit-transform: translateX(0) translateY(-45%) scale(1);
+          transform: translateX(0) translateY(-45%) scale(1);
+}
+
+.input_wrapper input[type="checkbox"]:checked ~ .is_unchecked {
+  -webkit-transform: translateX(-190%) translateY(-45%) scale(0);
+          transform: translateX(-190%) translateY(-45%) scale(0);
+}
+
+input[type="time"] {
+  height: 43px;
+  width: 132px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  font-family: inherit;
+  font-size: 1.2em;
+  padding: 0 5px;
+}
+
+input[type="time"]::-webkit-datetime-edit {
+  border-right: 1px solid rgba(255,255,255,0.3);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+input[type="time"]:focus-visible {
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3)!important;
+  border-radius: 0;
+  outline: none !important;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  -webkit-box-shadow: 0 0 0 12px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 0 12px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+} 
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+input[type="submit"] {
+  height: 43px;
+  width: 142px;
+  color: white;
+  font: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.0);
+  border: 1px solid rgba(255,255,255,0.3)!important;
+}
+
+input[type="submit"]:hover {
+  background-color: rgba(255,255,255,0.3);
+  cursor: pointer;
+}
+
+.settings {
+  border-bottom: none;
+  margin-top: 15px;
+  height: 45px;
+}
+
+@media (max-width: 1088px) {
+  form div { 
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  form div { 
+    flex-direction: column;
+    height: auto;
+    align-items: baseline;
+    margin: auto;
+    margin-bottom: 15px;
+    gap: 15px;
+    width: 100%;
+    border-bottom: none;
+  }
+
+  .settings {
+    height: auto;
+  }
+}
