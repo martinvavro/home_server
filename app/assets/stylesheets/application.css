@@ -52,7 +52,7 @@ section {
   justify-items: center;
 }
 
-.split-content div {
+.split-content section {
   margin: 0 2%;
 }
 
@@ -142,7 +142,7 @@ nav .start-contact, a:nth-child(5):hover~.animation {
     flex-direction: column;
   }
 
-  .split-content div {
+  .split-content section {
     flex-direction: row;
   }
 

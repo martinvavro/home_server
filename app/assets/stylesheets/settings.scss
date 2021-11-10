@@ -30,7 +30,6 @@ input[type=number] {
   border: 1px solid rgba(255,255,255,0.3);
   background: none;
   outline: none;
-  pointer-events: none;
 }
 
 span.spinner {
@@ -211,6 +210,16 @@ input[type="submit"]:hover {
   border-bottom: none;
   margin-top: 15px;
   height: 45px;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
 }
 
 @media (max-width: 1088px) {

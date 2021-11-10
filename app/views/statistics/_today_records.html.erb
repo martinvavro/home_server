@@ -1,4 +1,6 @@
 <h3>Today records</h3>
+<%= render 'day_visualizer' %>
+
 <div class="tbl-header">
   <table ellpadding="0" cellspacing="0" border="0">
     <tr>
@@ -7,13 +9,33 @@
     </tr>
   </table>
 </div>
-<div class="tbl-content">
+<div class="tbl-content today-data-rows">
   <table ellpadding="0" cellspacing="0" border="0">
     <% @occupancies.each do |occupancy| %>
-      <tr>
+      <tr class="<%= occupancy.is_home ? 'home' : 'away' %>" id="<%= occupancy.created_at.strftime('%H%M') %>">
         <td><%= occupancy.is_home ? 'home' : 'not home' %></td>
-        <td><%= occupancy.created_at.strftime('%H:%M:%S') %></td>
+        <td class="time"><%= occupancy.created_at.strftime('%H:%M') %></td>
       </tr>
     <% end %>
   </table>
 </div>
+
+<script>
+  function getElementByNumericalClass(id) {
+    return document.querySelector('.' + id.replace(/\b\d/g, '\\00003$&'));
+  }
+
+ $(document).ready(function() { 
+  document.querySelectorAll(".home .time").forEach((time) => { 
+    let id = time.innerText.replace(':', '');
+    let element = getElementByNumericalClass(id);
+    element.className = element.className.replace("away", "at-home");
+  });
+
+  let latestRecord = document.querySelector(".today-data-rows tr:last-child");
+  let id = latestRecord.id;
+  let element = getElementByNumericalClass(id)
+  
+  element.classList.add('now');
+ });
+</script>

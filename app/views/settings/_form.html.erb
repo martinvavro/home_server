@@ -19,7 +19,7 @@
 
   <div>
     <%= form.label I18n.t(:label_alarm_time)  %>
-    <%= form.time_field :alarm_time %>
+    <%= form.time_field :alarm_time, value: @settings.alarm_time.strftime("%H:%M"), min: 'hh:mm:ss', max: 'hh:mm:ss' %>
   </div>
 
   <div>
