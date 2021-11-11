@@ -7,3 +7,10 @@
     <%= render 'historical_records' %>
   </section>
 </div>
+
+<script>
+  function scrollRowToView(time) {
+    let element = document.getElementById(time);
+    if (element) element.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+  }
+</script>

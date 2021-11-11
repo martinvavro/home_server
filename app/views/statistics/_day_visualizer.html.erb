@@ -1,11 +1,11 @@
 <div class="day">
   <div class='hours-graph'>
-    <% (Date.today.beginning_of_day.to_time.to_i..Date.today.end_of_day.to_time.to_i).step(3.minute).each do |i| %>
+    <% day_polling_interval.each do |i| %>
       <% time = Time.at(i)%>
       <div 
-        class="away<%= time.strftime('%M') == '00' ? ' hour' : '' %> <%= time.strftime('%H%M') %>" 
+        class="<%= history ? 'at-home ' : 'away '%><%= time.strftime('%M') == '00' ? ' hour' : '' %> <%= time.strftime('%H%M') %>" 
         title="<%= time.strftime('%H:%M') %>" 
-        onclick="scrollRowToView('<%= time.strftime('%H%M') %>')">
+        <%= "onclick=scrollRowToView('#{time.strftime('%H%M')}')" unless history %>>
       </div>
     <% end %>
   </div>
@@ -15,11 +15,3 @@
     <% end %>  
   </div>
 </div>
-
-<script>
-  function scrollRowToView(time) {
-    let element = document.getElementById(time);
-    if (element) element.scrollIntoView( { behavior: 'smooth', block: 'start' } );
-  }
-</script>
-

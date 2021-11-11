@@ -1,0 +1,18 @@
+<% id = params[:id] %>
+
+function respond_to_ajax() {
+  $('#day-<%= id %>').html("<%= j(render 'day_visualizer', history: true) %>");
+
+  let json_data = JSON.parse("<%= statistic_windows_json(id) %>");
+
+  json_data.forEach(function(window) { 
+    for(let i = window[0]; i <= window[1]; i += 3) {
+      if (i % 100 === 60) i += 40;
+      let class_name = ('0000' + i).slice(-4);
+      let element = document.querySelector( '#day-<%= id %> .' + class_name.replace(/\b\d/g, '\\00003$&'))
+      element.className = element.className.replace("at-home", "away");
+    }
+  });
+}
+
+respond_to_ajax();

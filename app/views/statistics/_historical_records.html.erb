@@ -12,12 +12,29 @@
 <div class="tbl-content">
   <table ellpadding="0" cellspacing="0" border="0">
     <% @statistics.each do |statistic| %>
-      <tr>
+      <tr class="history-row" onclick="show(<%= statistic.id %>);">
         <td><%= statistic.home + statistic.not_home %></td>
         <td><%= statistic.home%></td>
         <td><%= statistic.not_home %></td>
         <td><%= statistic.date.strftime('%F') %></td>
       </tr>
+      <tr>
+       <td colspan="4" class="day-td" id="day-<%= statistic.id%>" onclick="$(this).toggle();"></td>
+      </tr>
+      <%= link_to "smth", statistics_path(id: statistic.id), id: "link-#{statistic.id}", remote: true, class: 'hidden'%> 
     <% end %>
   </table>
 </div>
+
+<script>
+function show(id) {
+  let link = document.getElementById('link-' + id);
+  
+  if (link) {
+    link.click();
+    link.remove();
+  }
+
+  $('#day-' + id).toggle();
+}
+</script>
