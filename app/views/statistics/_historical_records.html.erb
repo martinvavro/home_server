@@ -14,14 +14,14 @@
     <% @statistics.each do |statistic| %>
       <tr class="history-row" onclick="show(<%= statistic.id %>);">
         <td><%= statistic.home + statistic.not_home %></td>
-        <td><%= statistic.home%></td>
+        <td><%= statistic.home %></td>
         <td><%= statistic.not_home %></td>
         <td><%= statistic.date.strftime('%F') %></td>
       </tr>
       <tr>
-       <td colspan="4" class="day-td" id="day-<%= statistic.id%>" onclick="$(this).toggle();"></td>
+       <td colspan="4" class="day-td" id="day-<%= statistic.id %>"></td>
       </tr>
-      <%= link_to "smth", statistics_path(id: statistic.id), id: "link-#{statistic.id}", remote: true, class: 'hidden'%> 
+      <%= link_to "smth", statistics_path(id: statistic.id), id: "link-#{statistic.id}", remote: true, class: 'hidden' %> 
     <% end %>
   </table>
 </div>

@@ -3,7 +3,7 @@
     <% day_polling_interval.each do |i| %>
       <% time = Time.at(i)%>
       <div 
-        class="<%= history ? 'at-home ' : 'away '%><%= time.strftime('%M') == '00' ? ' hour' : '' %> <%= time.strftime('%H%M') %>" 
+        class="<%= history ? 'at-home' : 'away'%><%= time.strftime('%M') == '00' ? ' hour' : '' %> <%= time.strftime('%H%M') %>" 
         title="<%= time.strftime('%H:%M') %>" 
         <%= "onclick=scrollRowToView('#{time.strftime('%H%M')}')" unless history %>>
       </div>

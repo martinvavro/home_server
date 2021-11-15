@@ -1,3 +1,21 @@
 // Place all the styles related to the Devices controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+input[type=text] {
+  border: 1px solid rgba(255,255,255,0.3);
+  background: none;
+  height: 43px;
+  width: 132px;
+  padding: 0 5px;
+  color: white;
+  font-family: inherit;
+  font-size: 1.2em;
+}
+
+input[type=text]:focus-visible {
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3)!important;
+  border-radius: 0;
+  outline: none !important;
+}

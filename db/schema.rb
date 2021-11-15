@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_233911) do
+ActiveRecord::Schema.define(version: 2021_11_15_222531) do
+
+  create_table "devices", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "ip"
+    t.string "mac"
+    t.boolean "personal"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "always_home"
+  end
 
   create_table "home_occupancies", charset: "utf8mb4", force: :cascade do |t|
     t.integer "devices_number"
@@ -23,6 +33,29 @@ ActiveRecord::Schema.define(version: 2021_11_02_233911) do
     t.boolean "alarm"
     t.time "alarm_time"
     t.integer "sunset_offset"
+    t.text "last_nmap_info"
   end
 
+  create_table "settings", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "is_home_threshold"
+    t.boolean "alarm"
+    t.time "alarm_time"
+    t.integer "sunset_offset"
+    t.text "last_nmap_info"
+  end
+
+  create_table "statistics", charset: "utf8mb4", force: :cascade do |t|
+    t.date "date"
+    t.integer "home"
+    t.integer "not_home"
+  end
+
+  create_table "statistics_not_home_windows", charset: "utf8mb4", force: :cascade do |t|
+    t.datetime "from"
+    t.datetime "to"
+    t.bigint "statistic_id", null: false
+    t.index ["statistic_id"], name: "index_statistics_not_home_windows_on_statistic_id"
+  end
+
+  add_foreign_key "statistics_not_home_windows", "statistics"
 end

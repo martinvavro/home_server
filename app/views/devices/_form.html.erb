@@ -1,27 +1,32 @@
-<%= form_with model: @settings, url: url do |form| %>
+<%= form_with model: @device, url: url do |form| %>
   <div>
-    <%= form.label I18n.t(:label_is_home_threshold) %>
-    <%= form.number_field :is_home_threshold, in: 0..50 %>
+    <%= form.label I18n.t(:label_name) %>
+    <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label I18n.t(:label_alarm) %>
-    <%= render 'form_elements/checkbox', form: form, symbol: :alarm %>
+    <%= form.label I18n.t(:label_ip) %>
+    <%= form.text_field :ip %>
   </div>
 
   <div>
-    <%= form.label I18n.t(:label_alarm_time)  %>
-    <%= form.time_field :alarm_time, value: @settings.alarm_time.strftime("%H:%M"), min: 'hh:mm:ss', max: 'hh:mm:ss' %>
+    <%= form.label I18n.t(:label_mac) %>
+    <%= form.text_field :mac %>
   </div>
 
   <div>
-    <%= form.label I18n.t(:label_sunset_offset) %>
-    <%= form.number_field :sunset_offset, in: -120..120 %>
+    <%= form.label I18n.t(:label_always_home) %>
+    <%= render 'form_elements/checkbox', form: form, symbol: :always_home %>
   </div>
-  
+
+  <div>
+    <%= form.label I18n.t(:label_personal) %>
+    <%= render 'form_elements/checkbox', form: form, symbol: :personal %>
+  </div>
+
   <div class="settings">
     <p></p>
-    <%= form.submit "Save settings" %>
+    <%= form.submit "Save device" %>
   </div>
 <% end %>
 

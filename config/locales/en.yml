@@ -37,3 +37,8 @@ en:
   label_sunset_offset: "Number of minutes sunset offset"
   label_on: "on"
   label_on: "off"
+  label_name: "Name"
+  label_ip: "IP Address"
+  label_mac: "Mac Address"
+  label_always_home: "Always home device"
+  label_personal: "Personal device"

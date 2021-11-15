@@ -138,6 +138,9 @@ nav .start-contact, a:nth-child(5):hover~.animation {
 }
 
 @media (max-width: 700px) {
+  footer {
+    height: 150px;
+  }
   .split-content { 
     flex-direction: column;
   }
