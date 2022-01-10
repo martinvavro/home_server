@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  before_action :find_settings, only: %i[edit update]
+  before_action :find_settings, :find_devices, only: %i[edit update]
 
   def new
     @settings = Setting.new
@@ -31,6 +31,10 @@ class SettingsController < ApplicationController
 
   def find_settings
     @settings = Setting.first
+  end
+
+  def find_devices
+    @devices = Device.all
   end
 
   def settings_params

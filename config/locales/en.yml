@@ -40,5 +40,5 @@ en:
   label_name: "Name"
   label_ip: "IP Address"
   label_mac: "Mac Address"
-  label_always_home: "Always home device"
+  label_always_online: "Always online device"
   label_personal: "Personal device"

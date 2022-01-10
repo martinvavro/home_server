@@ -1,0 +1,21 @@
+<h3>Devices</h3>
+<div class="tbl-header">
+  <table ellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <th>Device Name</th>
+      <th><%= I18n.t(:label_always_online) %></th>
+      <th> Status </th>
+    </tr>
+  </table>
+</div>
+<div class="tbl-content today-data-rows">
+  <table ellpadding="0" cellspacing="0" border="0">
+    <% @devices.each do |device| %>
+      <tr>
+        <td><%= device.name %></td>
+        <td><%= device.always_online %></td>
+        <td><%= device.status %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

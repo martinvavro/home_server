@@ -1,9 +1,6 @@
 class DevicesController < ApplicationController
-  before_action :find_settings, only: %i[edit update destroy]
-
-  def index
-    @devices = Device.all
-  end
+  before_action :find_device, only: %i[edit update destroy]
+  before_action :find_settings, only: :new
 
   def new
     @device = Device.new
@@ -13,7 +10,7 @@ class DevicesController < ApplicationController
     @device = Device.new(devices_params)
 
     if @device.save
-      redirect_to devices_path
+      redirect_to settings_path
     else
       render :new
     end
@@ -24,7 +21,7 @@ class DevicesController < ApplicationController
 
   def update
     if @device.update(devices_params)
-      redirect_to devices_path
+      redirect_to settings_path
     else
       render :edit
     end
@@ -33,16 +30,20 @@ class DevicesController < ApplicationController
   def destroy
     @device.destroy
 
-    redirect_to devices_path
+    redirect_to settings_path
   end
 
   private
 
   def find_settings
+    @settings = Setting.first
+  end
+
+  def find_device
     @device = Device.find(params[:id])
   end
 
   def devices_params
-    params.require(:device).permit(:name, :ip, :mac, :personal, :always_home)
+    params.require(:device).permit(:name, :ip, :mac, :always_online)
   end
 end
