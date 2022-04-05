@@ -6,7 +6,7 @@
 
   <div>
     <%= form.label I18n.t(:label_ip) %>
-    <%= form.select :ip, available_devices %>
+    <%= form.select :ip, @connected_devices %>
   </div>
 
   <div>

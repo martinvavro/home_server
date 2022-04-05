@@ -1,6 +1,7 @@
 class DevicesController < ApplicationController
   before_action :find_device, only: %i[edit update destroy]
   before_action :find_settings, only: :new
+  before_action :find_connected_devices, only: :new
 
   def new
     @device = Device.new
@@ -41,6 +42,10 @@ class DevicesController < ApplicationController
 
   def find_device
     @device = Device.find(params[:id])
+  end
+
+  def find_connected_devices
+    @connected_devices = @settings.online_devices - Device.pluck(:ip)
   end
 
   def devices_params

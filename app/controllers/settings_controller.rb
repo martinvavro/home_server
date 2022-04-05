@@ -34,7 +34,7 @@ class SettingsController < ApplicationController
   end
 
   def find_devices
-    @devices = Device.all
+    @devices = Device.all.sort_by{ |a| a.status == "Online" ? 0 : 1 }
   end
 
   def settings_params

@@ -19,3 +19,28 @@ input[type=text]:focus-visible {
   border-radius: 0;
   outline: none !important;
 }
+
+.add-device {
+  text-align: center;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.add-device:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+
+
+.add-device a {
+  display:block;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+tr.online td{
+  font-weight: normal;
+}

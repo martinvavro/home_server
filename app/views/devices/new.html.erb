@@ -1,3 +1,6 @@
 <h3>Devices</h3>
-
-<%= render "form", devices: @device, url: devices_path %>
+<% if @connected_devices.any? %>
+  <%= render "form", settings: @device, url: devices_path %>
+<% else %>
+  <p> No unregistered devices found. Try again later. </p>
+<% end %>

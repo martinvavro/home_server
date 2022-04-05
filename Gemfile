@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mysql2', '0.5.3'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'whenever', '1.0.0'
+gem "sd_notify", "~> 0.1.1"

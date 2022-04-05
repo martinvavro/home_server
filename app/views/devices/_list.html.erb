@@ -5,17 +5,21 @@
       <th>Device Name</th>
       <th><%= I18n.t(:label_always_online) %></th>
       <th> Status </th>
+      <th> Ip address </th>
     </tr>
   </table>
 </div>
 <div class="tbl-content today-data-rows">
   <table ellpadding="0" cellspacing="0" border="0">
     <% @devices.each do |device| %>
-      <tr>
+      <tr class=<%= device.status.downcase %>>
         <td><%= device.name %></td>
-        <td><%= device.always_online %></td>
+        <td><%= device.always_online.to_s %></td>
         <td><%= device.status %></td>
+        <td><%= device.ip %></td>
       </tr>
     <% end %>
+      <td colspan=4 class="add-device"><%= link_to "Add", new_device_path %></td>
+    </tr>
   </table>
 </div>
