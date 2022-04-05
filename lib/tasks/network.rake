@@ -18,7 +18,7 @@ namespace :network do
 
   desc "Run once a day to delete old redundant records and save statistics"
   task delete_redundant_home_occupancy_records: :environment do
-    yesterday_records = HomeOccupancy.yesterday_records
+    yesterday_records = HomeOccupancy.all
 
     statistic = Statistic.create!(
       home: yesterday_records.where(is_home: true).count,
