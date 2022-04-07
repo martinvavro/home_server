@@ -1,11 +1,15 @@
 class Device < ApplicationRecord
   def status
-    if Setting.last.online_devices.include?(ip)
+    if online?
       "Online"
-    elsif always_online? 
-      "Anomaly"
     else
       "Offline" 
     end
+  end
+
+  def perform_scan(count = 1)
+    self.online = always_online || system("timeout 0.5 ping -c #{count} #{ip}", out: File::NULL)
+
+    save
   end
 end

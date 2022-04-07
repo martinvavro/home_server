@@ -45,7 +45,7 @@ class DevicesController < ApplicationController
   end
 
   def find_connected_devices
-    @connected_devices = @settings.online_devices - Device.pluck(:ip)
+    @connected_devices = @settings.online_devices_in_nmap - Device.pluck(:ip)
   end
 
   def devices_params

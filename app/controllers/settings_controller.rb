@@ -1,5 +1,6 @@
 class SettingsController < ApplicationController
-  before_action :find_settings, :find_devices, only: %i[edit update]
+  before_action :find_devices, only: %i[edit update]
+  before_action :find_settings, only: %i[edit update perform_nmap_scan]
 
   def new
     @settings = Setting.new
@@ -27,6 +28,15 @@ class SettingsController < ApplicationController
     end
   end
 
+  def perform_nmap_scan
+    console_command_output = `nmap -sn 192.168.0.1-255`   
+
+    @settings.last_nmap_info = console_command_output
+    @settings.save
+
+    redirect_back fallback_location: root_path
+  end
+
   private
 
   def find_settings
@@ -34,7 +44,7 @@ class SettingsController < ApplicationController
   end
 
   def find_devices
-    @devices = Device.all.sort_by{ |a| a.status == "Online" ? 0 : 1 }
+    @devices = Device.all.order(online: :desc)
   end
 
   def settings_params

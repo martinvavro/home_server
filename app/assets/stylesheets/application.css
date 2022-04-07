@@ -50,10 +50,14 @@ section {
 .split-content {
   display: flex;
   justify-items: center;
+	
 }
 
 .split-content section {
-  margin: 0 2%;
+	margin: 0 2%;
+	display: flex;
+	flex-direction: column;
+	height: 80vh;
 }
 
 nav {
@@ -141,13 +145,13 @@ nav .start-contact, a:nth-child(5):hover~.animation {
   footer {
     height: 150px;
   }
+	
   .split-content { 
     flex-direction: column;
   }
-
-  .split-content section {
-    flex-direction: row;
-  }
+	.split-content section {
+		height: auto;
+	}
 
 	header {
 		align-items: center;

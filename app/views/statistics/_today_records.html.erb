@@ -6,6 +6,7 @@
     <tr>
       <th>Home status</th>
       <th>Time</th>
+      <th>Online devices</th>
     </tr>
   </table>
 </div>
@@ -15,6 +16,7 @@
       <tr class="<%= occupancy.is_home ? 'home' : 'away' %>" id="<%= occupancy.created_at.strftime('%H%M') %>">
         <td><%= occupancy.is_home ? 'home' : 'not home' %></td>
         <td class="time"><%= occupancy.created_at.strftime('%H:%M') %></td>
+        <td><%= occupancy.devices_number %></td>
       </tr>
     <% end %>
   </table>
@@ -29,7 +31,7 @@
   document.querySelectorAll(".home .time").forEach((time) => { 
     let id = time.innerText.replace(':', '');
     let element = getElementByNumericalClass(id);
-    element.className = element.className.replace("away", "at-home");
+    if (element) element.className = element.className.replace("away", "at-home");
   });
 
   let latestRecord = document.querySelector(".today-data-rows tr:last-child");

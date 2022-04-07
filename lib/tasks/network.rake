@@ -2,11 +2,10 @@ namespace :network do
   desc "Run every 3 minutes to check if anyone is home"
   task check_number_of_devices_at_home: :environment do
     created_at = Time.zone.now
-    console_command_output = `nmap -sn 192.168.0.1-255`   
+    settings = Setting.last
 
-    settings = Setting.first
-    settings.last_nmap_info = console_command_output
-    settings.save(validate: false)
+    Device.all.each { |device| device.perform_scan }
+
     number_of_connected_devices = settings.online_devices.length
 
     HomeOccupancy.create!(

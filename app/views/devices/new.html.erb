@@ -2,5 +2,6 @@
 <% if @connected_devices.any? %>
   <%= render "form", settings: @device, url: devices_path %>
 <% else %>
-  <p> No unregistered devices found. Try again later. </p>
+  <p> No unregistered devices found. Try running a new scan. </p>
+  <%= link_to "Perform nmap scan", { controller: :settings, action: :perform_nmap_scan } %>
 <% end %>
